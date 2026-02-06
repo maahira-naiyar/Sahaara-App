@@ -257,17 +257,75 @@
 //   },
 // });
 
-import React from 'react';
+// import React from 'react';
+// import { StatusBar } from 'expo-status-bar';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// // Import Screens
+// import { UserProvider } from './context/UserContext';
+// import StartScreen from './screens/StartScreen';
+// import Dashboard from './screens/Dashboard';
+// import SOSMode from './screens/SOSMode';
+// // import TherapyDetail from './screens/TherapyDetail';
+// import LoginSignup from './screens/LoginSignup';
+// import ZenSpace from './screens/ZenSpace';
+// import Profile from './screens/Profile';
+// import AudioTherapy from './screens/Audio_Therapy';
+// import ReadingTherapy from './screens/ReadingTherapy';
+// import YogaTherapy from './screens/YogaTherapy';
+// import SpiritualTherapy from './screens/SpiritualTherapy';
+// import Chatbot from './screens/Chat_bot';
+// const Stack = createNativeStackNavigator();
+
+// export default function App() {
+//   return (
+//     // Wrap the whole app in UserProvider so all screens can access user data
+//     <UserProvider>
+//       <NavigationContainer>
+//         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          
+//           <Stack.Screen name="Start" component={StartScreen} />
+//           <Stack.Screen name="Dashboard" component={Dashboard} />
+//           {/* <Stack.Screen name="TherapyDetail" component={TherapyDetail} /> */}
+//           <Stack.Screen name="ZenSpace" component={ZenSpace} />
+//           <Stack.Screen name="SOSMode" component={SOSMode} options={{ headerShown: false }} />
+//           <Stack.Screen name="AudioTherapy" component={AudioTherapy} />
+//           <Stack.Screen name="ReadingTherapy" component={ReadingTherapy} />
+//           <Stack.Screen name="YogaTherapy" component={YogaTherapy} />
+//           <Stack.Screen name="SpiritualTherapy" component={SpiritualTherapy} />
+//           <Stack.Screen name="Chatbot" component={Chatbot} />
+//           {/* New Screens */}
+//           <Stack.Screen 
+//             name="LoginSignup" 
+//             component={LoginSignup} 
+//             options={{ presentation: 'modal' }} // Makes it slide up like a popup
+//           />
+//           <Stack.Screen name="Profile" component={Profile} />
+          
+//         </Stack.Navigator>
+//         <StatusBar style="auto" />
+//       </NavigationContainer>
+//     </UserProvider>
+//   );
+// }
+
+
+
+import React, { useState, useEffect, useCallback } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, StyleSheet, Platform } from 'react-native'; // <--- Added Platform & View
+import * as Font from 'expo-font'; // <--- Added for Icons
+import { Ionicons } from '@expo/vector-icons';
+import * as SplashScreen from 'expo-splash-screen'; // Keep splash screen visible while loading
 
 // Import Screens
 import { UserProvider } from './context/UserContext';
 import StartScreen from './screens/StartScreen';
 import Dashboard from './screens/Dashboard';
 import SOSMode from './screens/SOSMode';
-// import TherapyDetail from './screens/TherapyDetail';
 import LoginSignup from './screens/LoginSignup';
 import ZenSpace from './screens/ZenSpace';
 import Profile from './screens/Profile';
@@ -276,36 +334,83 @@ import ReadingTherapy from './screens/ReadingTherapy';
 import YogaTherapy from './screens/YogaTherapy';
 import SpiritualTherapy from './screens/SpiritualTherapy';
 import Chatbot from './screens/Chat_bot';
+
 const Stack = createNativeStackNavigator();
 
+// Prevent splash screen from hiding automatically
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false);
+
+  // 1. PRE-LOAD FONTS (Crucial for Web & Mobile Icons)
+  useEffect(() => {
+    async function prepare() {
+      try {
+        await Font.loadAsync(Ionicons.font);
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        setAppIsReady(true);
+      }
+    }
+    prepare();
+  }, []);
+
+  // 2. HIDE SPLASH SCREEN WHEN READY
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  if (!appIsReady) {
+    return null; // Keep waiting
+  }
+
   return (
-    // Wrap the whole app in UserProvider so all screens can access user data
-    <UserProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          
-          <Stack.Screen name="Start" component={StartScreen} />
-          <Stack.Screen name="Dashboard" component={Dashboard} />
-          {/* <Stack.Screen name="TherapyDetail" component={TherapyDetail} /> */}
-          <Stack.Screen name="ZenSpace" component={ZenSpace} />
-          <Stack.Screen name="SOSMode" component={SOSMode} options={{ headerShown: false }} />
-          <Stack.Screen name="AudioTherapy" component={AudioTherapy} />
-          <Stack.Screen name="ReadingTherapy" component={ReadingTherapy} />
-          <Stack.Screen name="YogaTherapy" component={YogaTherapy} />
-          <Stack.Screen name="SpiritualTherapy" component={SpiritualTherapy} />
-          <Stack.Screen name="Chatbot" component={Chatbot} />
-          {/* New Screens */}
-          <Stack.Screen 
-            name="LoginSignup" 
-            component={LoginSignup} 
-            options={{ presentation: 'modal' }} // Makes it slide up like a popup
-          />
-          <Stack.Screen name="Profile" component={Profile} />
-          
-        </Stack.Navigator>
-        <StatusBar style="auto" />
-      </NavigationContainer>
-    </UserProvider>
+    // 3. WRAPPER VIEW WITH CONDITIONAL STYLES
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <UserProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            
+            <Stack.Screen name="Start" component={StartScreen} />
+            <Stack.Screen name="Dashboard" component={Dashboard} />
+            <Stack.Screen name="ZenSpace" component={ZenSpace} />
+            <Stack.Screen name="SOSMode" component={SOSMode} />
+            <Stack.Screen name="AudioTherapy" component={AudioTherapy} />
+            <Stack.Screen name="ReadingTherapy" component={ReadingTherapy} />
+            <Stack.Screen name="YogaTherapy" component={YogaTherapy} />
+            <Stack.Screen name="SpiritualTherapy" component={SpiritualTherapy} />
+            <Stack.Screen name="Chatbot" component={Chatbot} />
+            
+            <Stack.Screen 
+              name="LoginSignup" 
+              component={LoginSignup} 
+              options={{ presentation: 'modal' }} 
+            />
+            <Stack.Screen name="Profile" component={Profile} />
+            
+          </Stack.Navigator>
+          <StatusBar style="auto" />
+        </NavigationContainer>
+      </UserProvider>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    // 4. THE MAGIC FIX:
+    // Only apply '100vh' on Web. Mobile ignores this block safely.
+    ...Platform.select({
+      web: {
+        height: '100vh', 
+        overflow: 'hidden',
+      },
+    }),
+  },
+});
