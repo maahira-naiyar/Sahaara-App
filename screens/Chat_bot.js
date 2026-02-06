@@ -170,8 +170,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 // --- CONFIGURATION ---
 // 1. PASTE YOUR API KEY HERE (Keep the quotes!)
-const GEMINI_API_KEY = 'AIzaSyCdSpI4x1Ra8J9sFuc_rtHtD81reY51bqQ'; 
-
+//const GEMINI_API_KEY = 'AIzaSyCdSpI4x1Ra8J9sFuc_rtHtD81reY51bqQ'; 
+import { GEMINI_API_KEY } from '../secrets';
 const BOT_AVATAR = 'https://cdn-icons-png.flaticon.com/512/4712/4712035.png';
 const USER_AVATAR = 'https://cdn-icons-png.flaticon.com/512/1077/1077114.png';
 
@@ -203,6 +203,7 @@ export default function Chatbot({ navigation }) {
       // UPDATED MODEL: 'gemini-2.5-flash' (The current 2026 Free Tier Standard)
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+        //`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -325,7 +326,8 @@ export default function Chatbot({ navigation }) {
         />
 
         {/* INPUT AREA */}
-        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={10}>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}style={{ flexGrow: 0 }}>
+          {/* earlier 10 */}
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
