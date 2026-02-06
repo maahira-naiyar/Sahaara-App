@@ -114,3 +114,44 @@ const firebaseConfig = {
   appId: "1:811003337209:web:96ecb9d6e2b7a06917c528",
   measurementId: "G-Q4ZH2HQXBS"
 };
+
+
+
+
+
+
+
+
+git remote add origin https://github.com/maahira-naiyar/Sahaara-App.git
+
+
+
+
+
+
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  
+
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
