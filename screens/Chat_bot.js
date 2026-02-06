@@ -171,7 +171,11 @@ import { Ionicons } from '@expo/vector-icons';
 // --- CONFIGURATION ---
 // 1. PASTE YOUR API KEY HERE (Keep the quotes!)
 //const GEMINI_API_KEY = 'AIzaSyCdSpI4x1Ra8J9sFuc_rtHtD81reY51bqQ'; 
-import { GEMINI_API_KEY } from '../secrets';
+//
+//import { GEMINI_API_KEY } from '../secrets';
+
+// Access the key from the environment (works on Vercel AND local if setup)
+const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
 const BOT_AVATAR = 'https://cdn-icons-png.flaticon.com/512/4712/4712035.png';
 const USER_AVATAR = 'https://cdn-icons-png.flaticon.com/512/1077/1077114.png';
 
