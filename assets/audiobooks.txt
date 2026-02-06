@@ -1,0 +1,116 @@
+"The Midnight Library"
+By Matt Haig
+
+It is easy to mourn the lives we aren't living. Easy to wish we'd developed other talents, said yes to different offers. Easy to wish we'd worked harder, loved better, handled our finances more astutely, been more popular, stayed in the band, gone to Australia, said yes to the coffee or done more bloody yoga.
+It takes no effort to miss the friends we didn't make and the work we didn't do and the people we didn't marry and the children we didn't have. It is not difficult to see yourself through the lens of other people, and to wish you were all the different kaleidoscopic versions of you they wanted you to be. It is easy to regret, and keep regretting, ad infinitum, until our time runs out.
+But it is not the lives we regret not living that are the real problem. It is the regret itself. It's the regret that makes us shrivel and wither and feel like our own and other people's worst enemy.
+We can't tell if any of those other versions would have been better or worse. Those lives are happening, it is true, but you are
+happening as well, and that is the happening we have to focus on.
+
+
+
+
+A LITTLE LIFE
+And then I went to college, and I met people who, for whatever reason, decided to be my friends, and they taught me-everything, really. They made me, and make me, into someone better than I really am.
+"You won't understand what I mean now, but someday you will: the only trick of friendship, I think, is to find people who are better than you are-not smarter, not cooler, but kinder, and more generous, and more forgiving-and then to appreciate them for what they can teach you, and to try to listen to them when they tell you something about yourself, no matter how bad-or good-it might be, and to trust them, which is the hardest thing of all. But the best, as well."
+
+ The big magic by Elizabeth Gilbert.
+NOBODY'S THINKING ABOUT YOU
+Long ago, when I was in my insecure twenties, I met a clever, independent, creative, and powerful woman in her mid-seventies, who offered me a superb piece of life
+wisdom.
+She said: "We all spend our twenties and thirties trying so hard to be perfect, because we're so worried about what people will think of us. Then we get into our forties and fifties, and we finally start to be free, because we decide that we don't give a damn what anyone thinks of us. But you won't be completely free until you reach your sixties and seventies, when you finally realize this liberating truth-nobody was ever thinking about you, anyhow."
+They aren't. They weren't. They never were.
+in
+People are mostly just thinking about themselves. People don't have time to worry about what you're doing, or how well you're doing it, because they're all caught up their own dramas.
+
+THE MOUNTAIN IS YOU
+FINDING YOUR TRUE PURPOSE
+When you live in a world that is constantly telling you you to follow your heart, trust your gut, quit your day job, and do what you love, it can be disheartening when don't know where to start. When you start thinking that don't know what to do with your life, what you really you mean is that you don't yet know who you are.
+Finding your purpose is not necessarily about realizing that you are destined to live in a monastery or devote your life to a singular vocation or goal. Your purpose is not one job, it is not one relationship, it is not even one career field. Your purpose is, first and foremost, just to be here. Your existence has shifted the world in a way that it is invisible to you. Without you, absolutely nothing would exist just as it is right now. This is important to understand, because if you start believing that your whole purpose in being alive is just a specific job or role you take on at home, what happens when you quit or retire, or when the kids grow up and you're no longer a parent?
+You'll sink because you will falsely think that was your only reason for being.
+
+﻿
+"101 essays that will change the way you think" by Brianna Wiest.
+SIMPLICITY.
+Learn to like what doesn't cost much. Those are the things worth your time. You can buy your way into things and places, but you can't actually buy the experience of them. It's not what you do; it's what you perceive. A meaningful life isn't how often you can saturate your senses, but how you grow to think of even the simplest, most unassuming daily things.
+Learn to like reading, whatever it is you like to read. Learn to like talking and people, even when they're not the same as you. Learn that truths can coexist. That's the one thing that will set you free in this world.
+Learn to like simple foods and cooking them. Learn to like fields, trees, camping, walking, fires, watching the day break and end. Learn to like writing and burning candles on rainy summer early evenings. Learn to like clean linens and washing dishes and hot baths and drinking water and long, meandering drives. Learn to keep your needs simple and your wants small.
+Learn to breathe deeply. To taste food when you eat it, to sleep deeply when you sleep. When you laugh, let it carry on until you're sweating and out of breath. When you get angry, get really angry, just let things burn through you. The less you push these things away, the less they come out in inappropriate and debilitating ways. It's not anger or the sadness that controls you; it's the resistance of it that keeps them tucked in their place in your soul.
+Learn to let negative thoughts drift back to where they came from-nowhere.
+Do the things that are effortless. Let them be effortless. Find love that's effortless. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const DAILY_WISDOM = [
+  { 
+    id: '1', 
+    quote: "You are the sky. Everything else is just the weather.", 
+    author: "Pema Chödrön", 
+    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80', // Sky/Ocean
+    excerpt: "This teaching reminds us that our true nature is vast, open, and clear—like the sky. Fear, anxiety, and anger are just clouds passing through. They may look dark and stormy, but they cannot harm the sky. They eventually drift away, revealing the blue that was there all along. You are not your feelings; you are the space that holds them." 
+  },
+  { 
+    id: '2', 
+    quote: "Quiet the mind, and the soul will speak.", 
+    author: "Ma Jaya Sati Bhagavati", 
+    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&q=80', // Forest
+    excerpt: "We live in a world of constant noise—notifications, traffic, and our own racing thoughts. But wisdom never shouts; it whispers. When you intentionally create silence, you allow your deeper intuition to surface. It is in the pauses between thoughts that we find who we truly are." 
+  },
+  { 
+    id: '3', 
+    quote: "Do not look for a sanctuary in anyone except your self.", 
+    author: "The Buddha", 
+    image: 'https://images.unsplash.com/photo-1528319725582-ddc096101511?w=500&q=80', // Zen Garden
+    excerpt: "We often look to other people, places, or things to make us feel safe. But these things are temporary. True refuge is built inside. By treating yourself with kindness, forgiveness, and patience, you build a home within your own heart that no external storm can destroy." 
+  },
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MAGIC OF LIFE
+Life does not always go in a straight line. Things get messy and tangled, and our paths twist and turn in many directions. The right things happen at the wrong time and opportunities get passed by. Some things happen that we just cannot understand in the moment no matter how badly we want an answer. And some things that we wish would happen just never do. Life can be a little messy, but that does not mean that it cannot be wonderful too. Because even in the messiness, even in the mistakes and missed chances, even in the midst of not knowing what to do or where to turn, there are still so many beautiful moments. There is still love and joy and light. There is still laughter and kindness. So maybe life is messy. But maybe, it does not need to be anything else. Maybe it is in all of the messiness that we can see all of the things that matter most of all.
+- Nikki Banas
+
+
+
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDBakv-ADDdbYBcvBid0JAmfc_pSwfsCMM",
+  authDomain: "sahaara-app.firebaseapp.com",
+  projectId: "sahaara-app",
+  storageBucket: "sahaara-app.firebasestorage.app",
+  messagingSenderId: "811003337209",
+  appId: "1:811003337209:web:96ecb9d6e2b7a06917c528",
+  measurementId: "G-Q4ZH2HQXBS"
+};
